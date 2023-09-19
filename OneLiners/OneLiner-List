@@ -1,0 +1,9 @@
+# 3.1 Deliverable 7:
+cat zt.txt | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | awk '{print $1 "," $5}' | grep -v ";"
+
+# 3.1 Deliverable 6:
+nmap -sL 10.0.5.0/24 --dns-servers <YourDNSServer> | grep 'Nmap scan report for' | awk '{if ($6) {print $6 " (" $5 ")"} }'
+
+# 3.1 Deliverable 5:
+nmap -Pn -oG - -p53 10.0.5.0/24 | grep "/open/" | awk '{print $2}' | sort -u > dns-servers2.txt
+
