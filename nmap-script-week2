@@ -1,0 +1,21 @@
+#! /bin/bash
+
+
+# Input 1 = 10.0.5
+# Input 2 = 2
+# Input 3 = 254
+
+Start=${2};
+End=${3};
+
+for i in $(eval echo "{$Start..$End}")
+do 
+
+res=$(nmap -n -vv -sn "${1}.${i}" | grep "Nmap scan report" | head -n 1);
+
+#if variable isnt empty
+if [ ! -z "$res" ]
+then
+	echo "${1}.${i}"
+fi
+done
