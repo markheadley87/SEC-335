@@ -1,3 +1,0 @@
-#! /bin/bash
-
-for ip in $(seq 2 50); do ping -c 1 10.0.5.$ip > /dev/null 2>&1 && echo "10.0.5.$ip is up"; done >> sweep.txt
